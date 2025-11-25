@@ -1,232 +1,265 @@
 # mohanreddy_1771
 
 
-# 🧑‍⚕️ Discharge Management System (C Program)
+🧑‍⚕️ Discharge Management System (C Program)
 
-A simple menu-driven **Hospital Discharge Management System** written entirely in C.
+A fully functional, menu-driven Hospital Discharge Management System created using C programming.
+This program helps hospital staff store, update, search, and delete patient discharge information efficiently using binary file handling and structured data.
 
-This program allows hospital staff to discharge patients, update discharge records, and search or view patient discharge information using structures and binary file storage.
+⭐ ABSTRACT
 
+The Hospital Discharge Management System is a console-based C application designed to simplify how hospitals handle discharge records. This system allows healthcare staff to enter new discharge details, search for an existing patient, update discharge notes, and remove outdated information securely. All records are stored in a binary file, ensuring that patient data is safely preserved even when the program is closed.
 
-## 👉 Abstract
+By using structures, file handling (fread, fwrite), arrays, loops, and conditional logic, the system demonstrates strong practical applications of core C programming concepts. It is ideal for students and beginners learning how to create real-world management systems using the C language.
 
-The **Discharge Management System** is a lightweight, terminal-based C application designed to support hospitals in managing patient discharge information accurately and efficiently.
-The system enables users to record new discharge entries, update existing discharge notes, view all discharged patients, and search patient discharge details by ID.
-All information is stored persistently in a binary `.dat` file, ensuring that data remains saved even when the program is closed.
+⭐ FEATURES OF THE PROGRAM
+✔ Add Discharge Record
 
-With a simple menu-driven interface and clean file-handling logic, this program is ideal for beginners learning C concepts such as structures, binary files, loops, conditional statements, and text-based user interaction.
-This project provides a practical solution for tracking discharged patients in a small healthcare environment.
+Record patient ID
 
----
+Enter patient name, age, gender
 
-## 👉 Features of the Program
+Enter diagnosis
 
-### ✔ Add Discharge Record
+Enter the number of days admitted
 
-* Enter patient ID
-* Enter patient name
-* Enter disease/diagnosis
-* Enter discharge notes or instructions
-* Save the record into `discharge.dat`
+Enter medicine charges, room charges, and other costs
 
-### ✔ View All Discharged Patients
+Add final discharge notes
 
-Displays:
+Save record permanently to discharge.dat
 
-* Patient ID
-* Name
-* Diagnosis
-* Discharge Notes
+✔ View All Discharged Patients
 
-### ✔ Search Discharge Record
+Displays a table with:
 
-* Search by patient ID
-* Show complete discharge details
-* Displays a “Record Not Found” message if absent
+Patient ID
 
-### ✔ Update Discharge Notes
+Name
 
-* Load all records into an array
-* Modify discharge details
-* Save updated data back to the file
+Age
 
-### ✔ Delete Discharge Record
+Gender
 
-* Confirm before deleting
-* Remove entry permanently
-* Rewrite updated records into `discharge.dat`
+Diagnosis
 
-### ✔ Persistent Data Storage
+Days admitted
 
-* All discharge data stored in `discharge.dat`
-* File automatically created if missing
-* Records stored using binary `fread()` and `fwrite()`
+Total bill amount (auto-calculated)
 
-### ✔ User-Friendly Interface
+Contact info
 
-* Simple menu-driven navigation
-* Clear input prompts
-* Safe input handling using `fgets()`
-* Loop continues until user chooses Exit
+✔ Search Discharge Record
 
----
+Search by Patient ID
 
-## 👉 Technical Requirements
+Displays complete discharge summary
 
-### System Requirements
+Shows “Record Not Found” if ID does not exist
 
-* Windows / Linux / macOS
-* Terminal / Command Prompt
-* Minimum RAM: 4 MB
-* Small disk space for `discharge.dat`
+✔ Update Discharge Details
 
-### Software Requirements
+Load all records into memory
 
-* C Compiler: GCC / Clang / MSVC / MinGW
-* Code editor: VS Code, Code::Blocks, Dev-C++, etc.
+Edit discharge notes, diagnosis, and billing charges
 
-### Programming Requirements
+Write all updated records back to the file
 
-* Language: **C**
-* Standard: C89/C99/C11 supported
+Shows confirmation message after update
 
-### Libraries Used
+✔ Delete Discharge Record
 
-```c
-#include <stdio.h>   // Input/Output, File handling
-#include <string.h>  // String functions (fgets, strcpy, etc.)
-```
+Confirm before deletion
 
-(No `<stdlib.h>` required)
+Remove the selected patient permanently
 
----
+Rewrite the updated list into discharge.dat
 
-## 👉 File Handling Requirements
+✔ Binary File Storage
 
-Program uses a binary file:
+All data stored in a file named discharge.dat
 
-```
+Data stored using fwrite()
+
+Read using fread()
+
+File created automatically if not found
+
+Supports unlimited records
+
+✔ User-Friendly Interface
+
+Clean text-based menu
+
+Clear prompts
+
+Uses fgets() for safe string input
+
+Loops until the user selects Exit
+
+⭐ TECHNICAL REQUIREMENTS
+System Requirements
+
+Windows / macOS / Linux
+
+Terminal / Command Prompt
+
+Any basic computer (very lightweight program)
+
+Software Requirements
+
+C Compiler: GCC, MinGW, MSVC, Clang
+
+Text editor like:
+Code::Blocks, VS Code, Dev-C++, Notepad++, etc.
+
+Programming Requirements
+
+Language: C
+
+File Handling
+
+Structures
+
+Menu-driven interface
+
+Binary file operations
+
+⭐ LIBRARIES USED
+#include <stdio.h>     // For I/O operations, file handling
+#include <stdlib.h>    // For general utilities
+#include <string.h>    // For string handling (fgets, strcpy, etc.)
+
+⭐ FILE MANAGEMENT
+
+A binary file named:
+
 discharge.dat
-```
 
-Each `Discharge` structure is written using:
 
-* `fwrite()` → store record
-* `fread()` → read record
+is used to store records permanently.
 
-Program will:
+Uses:
 
-* Create file automatically if it does not exist
-* Append new entries safely
-* Rewrite records when updated or deleted
+fwrite() to add/save data
 
----
+fread() to access stored data
 
-## 👉 Functional Requirements
+fopen() in ab / rb / wb modes
 
-### 🔹 User Interface
+Automatically creates file if missing
 
-* Fully command-line
-* Clear menu options
-* Input validation
-* Continuous loop until Exit
+File persists even after the program is closed.
 
----
+⭐ FUNCTIONAL REQUIREMENTS
+🔹 1. Add Discharge Record
 
-### 🔹 Discharge Management Operations
+Take patient details
 
-#### ✔ Add Discharge Record
+Validate duplicate ID
 
-* Input patient ID
-* Check if record already exists
-* Enter patient name
-* Enter diagnosis
-* Enter doctor’s discharge notes
-* Save new record to file
+Calculate total bill
 
-#### ✔ View All Discharge Records
+Store record permanently
 
-Displays:
+🔹 2. View All Discharge Records
 
-* ID
-* Name
-* Diagnosis
-* Discharge Notes
+Displays rows containing:
 
-Records are read directly from the file.
+ID
 
-#### ✔ Search Patient Discharge Info
+Name
 
-* Search by Patient ID
-* Displays all details if found
-* Otherwise shows error message
+Diagnosis
 
-#### ✔ Update Discharge Details
+Billing details
 
-* Read all records into an array
-* Locate target ID
-* Edit discharge notes / details
-* Save all records back to file
+Contact
 
-#### ✔ Delete Discharge Record
+Total cost
 
-* Load all records
-* Confirm deletion
-* Remove the selected entry
-* Rewrite updated list to `discharge.dat`
+🔹 3. Search Discharge Information
 
----
+Search by ID only
 
-## 👉 Data Management
+Full details displayed if found
 
-* All data stored persistently
-* Supports unlimited sessions
-* Automatically creates file
-* Uses arrays for editing and rewriting
+🔹 4. Update Discharge Record
 
----
+Modifiable fields:
 
-## 👉 Program Flow
+Diagnosis
 
-1. Display menu
-2. User selects an option
-3. Perform corresponding operation
-4. Show success or error message
-5. Return to menu
-6. Exit when user chooses
+Medicine cost
 
----
+Other charges
 
-## 👉 How to Run the Program
+Contact details
 
-### 1. Compile the Program
+All changes rewritten to file.
 
-Open terminal and run:
+🔹 5. Delete Discharge Record
 
-```
-gcc discharge_management.c -o discharge_management
-```
+Confirm deletion
 
-### 2. Run the Executable
+Remove entry
 
-Linux/macOS:
+Rewrite updated data
 
-```
-./discharge_management
-```
+⭐ DATA MANAGEMENT
+
+Each patient stored as a structure
+
+All fields handled using arrays and file operations
+
+Updating and deletion handled using temporary arrays
+
+File rewritten after updates to maintain accuracy
+
+⭐ PROGRAM FLOW
+
+Display main menu
+
+User selects an operation
+
+Program performs the operation:
+
+Add, View, Search, Update, or Delete
+
+Displays confirmation or error message
+
+Returns to the main menu
+
+Exits when the user chooses option 6
+
+ screen shots
+ <img width="677" height="502" alt="Screenshot 2025-11-25 190223" src="https://github.com/user-attachments/assets/354a3176-1432-4369-b181-627878765282" />
+ <img width="1009" height="316" alt="Screenshot 2025-11-25 190235" src="https://github.com/user-attachments/assets/9841b014-4485-4cfe-b5fa-f2d17525b512" />
+ <img width="462" height="484" alt="Screenshot 2025-11-25 190246" src="https://github.com/user-attachments/assets/ea65a859-2a27-4b82-a23a-f8937b338871" />
+<img width="439" height="347" alt="Screenshot 2025-11-25 190256" src="https://github.com/user-attachments/assets/c95225f5-735d-43b7-a69f-a3e4f9cb4d06" />
+<img width="550" height="506" alt="Screenshot 2025-11-25 190309" src="https://github.com/user-attachments/assets/7961e8a2-8ea8-45ee-8933-51625f97ca38" />
+
+
+⭐ HOW TO RUN THE PROGRAM
+Step 1: Compile the code
+gcc discharge_management_system.c -o discharge
+
+Step 2: Run the executable
 
 Windows:
 
-```
-discharge_management.exe
-```
+discharge.exe
 
-### 3. Data File
 
-The program automatically creates:
+Linux/macOS:
 
-```
+./discharge
+
+Step 3: File Creation
+
+After running the program, it will automatically create:
+
 discharge.dat
-```
 
-All discharge records are stored here permanently.
+
+All discharge information will be saved here permanently.
